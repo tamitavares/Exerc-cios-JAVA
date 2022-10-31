@@ -5,6 +5,7 @@ public class App {
         Scanner entrada = new Scanner(System.in);
         Tempo t = new Tempo();
 
+        t.imprimir();
         System.out.print("Entrada em segundos: ");
         t.setS(entrada.nextInt());
         t.imprimir();

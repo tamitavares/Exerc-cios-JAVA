@@ -11,6 +11,15 @@ public class Tempo {
     }
 
     //funções
+
+    public Tempo(int s){
+        this.s = 0;
+    }
+
+    public Tempo(){
+        
+    }
+
     public int horas(){
         return (s/3600);
     }

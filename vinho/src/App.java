@@ -6,7 +6,6 @@ public class App {
         Scanner entradaS = new Scanner(System.in);
         Vinho v[] = new Vinho[3];
         Double caro = 0.0;
-        int velho = 0;
         String nome, tipo;
         int dia, mes, ano;
         Double preco;

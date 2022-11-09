@@ -1,65 +1,56 @@
-import java.util.*;
+//App
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner entrada = new Scanner(System.in);
-        Scanner entradaStr = new Scanner(System.in);
+        Double maior=0.0, menor=0.0, novo=0.0;
         Empregado e[] = new Empregado[3];
-        String nome;
-        Double salario;
-        Double maior = 0.0;
-        Double menor = 0.0;
-        Double novo = 0.0; 
+        e[0] = new Empregado("Tamiris", 1050.00);
+        e[1] = new Empregado("Jose", 800.00);
+        e[2] = new Empregado("Ana", 760.00);
 
-        for(int i=0; i<3; i++){
-            System.out.print("Nome do empregado " + (i+1) + ": ");
-            nome = entradaStr.nextLine();
-            System.out.print("Salario do empregado " + (i+1) + ": ");
-            salario = entrada.nextDouble();
-            if(salario<0){
-                salario=0.0;
-            }
-            e[i] = new Empregado(nome, salario);
-        }
-        
-        //calcula maior
+
+
+        //Imprimir o nome do empregado com o maior salário
+
         for(int i=0; i<3; i++){
             if(i==0){
                 maior=e[i].getSalario();
             }
-            if(maior<e[i].getSalario()){
+            else if(maior<e[i].getSalario()){
                 maior=e[i].getSalario();
             }
         }
-        //imprime maior
+
         for(int i=0; i<3; i++){
             if(maior==e[i].getSalario()){
-                e[i].imprimirNome();
+                System.out.println("O maior salário é do funcionário " + e[i].getNome());
             }
         }
-        //calcula menor
+
+        //Aumentar o salário do empregado com o menor salário em 30%
+
         for(int i=0; i<3; i++){
             if(i==0){
                 menor=e[i].getSalario();
             }
-            if(menor>e[i].getSalario()){
+            else if(menor>e[i].getSalario()){
                 menor=e[i].getSalario();
             }
         }
-        //aumenta salario do menor
+
         for(int i=0; i<3; i++){
             if(menor==e[i].getSalario()){
-                novo = e[i].calcularSalario(0.3);
+                e[i].setSalario(menor*1.3);
             }
         }
-        //compara se o menor salário é maior do que o maior salario
-        if(novo>maior){
-            System.out.println("O novo salário é maior que o maior salário");
-            System.out.println("Ele passou a ser "+ novo +" reais");
-        }       
 
+        novo=(menor*1.3);
 
-        entrada.close();
-        entradaStr.close();
+        //Imprimir na tela se o novo salário do empregado, com menor salário, é maior do que o salário do empregado com maior salário.
+
+        if(novo>menor){
+            System.out.println("O novo salário é " + novo + ", sendo maior que o do empregado com maior salário");
+        }
+
     }
 }
